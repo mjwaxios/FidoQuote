@@ -225,11 +225,14 @@ var QUOTES = [
 exports.getRandomQuote = function() {
     var quoteIndex = Math.floor(Math.random() * QUOTES.length);
     var randomQuote = QUOTES[quoteIndex];
-    return randomQuote;
+    return { quote: randomQuote,
+      index: quoteIndex,
+      length: QUOTES.length
+    };
 }
 
-exports.stripQuote = function(quote) {
-    return quote.replace('<p>', '\n').replace('</p>', '\n').replace(/^\s+|\s+$/g, '');
+exports.stripQuote = function(squote) {
+    return squote.replace('<p>', '\n').replace('</p>', '\n').replace(/^\s+|\s+$/g, '');
 }
 
 
