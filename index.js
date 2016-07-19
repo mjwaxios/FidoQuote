@@ -6,7 +6,7 @@
 */
 
 var APP_ID = "amzn1.echo-sdk-ams.app.6d6d69d2-1d76-46a5-9180-3ae3c6d0eb59";
-var VERSION = "7/18/2016 - 7:33 pm"
+var VERSION = "7/19/2016 - 11:13 am";
 var QUOTES = [
 "Ill play with it first and tell you what it is later.<p>MILES DAVIS</p>",
 "Im hungry! Im hungry! for good things to eat for Sugar Jets, Sugar Jets whole toasted wheat<p>ADVERTISEMENT</p>",
@@ -490,7 +490,9 @@ function handleNewQuoteRequest(response) {
       type: AlexaSkill.speechOutputType.SSML
     };
     var cardTitle = "Fido BBS Quote";
-    response.tellWithCard(speechOutput, cardTitle, randomQuote);
+    var cardquote = randomQuote.replace('<p>', '\n').replace('</p>','\n').replace(/^\s+|\s+$/g, '');
+    
+    response.tellWithCard(speechOutput, cardTitle, cardquote);
 }
 
 // Create the handler that responds to the Alexa Request.
