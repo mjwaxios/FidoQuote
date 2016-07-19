@@ -85,7 +85,7 @@ AlexaSkill.prototype.execute = function (event, context) {
     try {
         if (event.session == null) {
           console.log("Called without a session.");
-          return;
+          return "Called without a session. Version: ";
         }
         console.log("session applicationId: " + event.session.application.applicationId);
 
